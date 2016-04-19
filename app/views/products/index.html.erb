@@ -1,18 +1,17 @@
-<h1>Display All Products</h1>
+<h1>Kylie's Fun</h1>
 
-<table class ="table">
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Image</th>
-    <th>Description</th>
-  </tr>
+<div class="row">
   <% @products.each do |product| %>
-  <tr>
-    <td><a href="/products/<%= product.id %>"><%=product.name%></a></td>
-    <td><%=product.price%></td>
-    <td><img src="<%=product.image%>"></td>
-    <td><%=product.description%></td>
-  </tr>
-  <% end %>
-</table>
+  <div class =”col-md-3”>
+      <p><%= product.name %></p>
+      <p><%= product.price %></p>
+      <p><%= product.description %></p>
+      <div>
+        <img src="<%= product.image %>" width=”200” height =”200”>
+      </div>
+  </div>
+  <%end%>
+  
+</div>
+
+<%= link_to "New", "/products/new"%>

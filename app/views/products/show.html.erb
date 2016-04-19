@@ -1,7 +1,12 @@
 <ul>
-  <li><%= @product.name %></li>
-  <li><%= @product.price %></li>
+  <li>Product: <%= @product.name %></li>
+  <li class="<%=@product.sale_message %>">Price: <%= @product.price %>---<%=@product.sale_message%></li>
+  <li>Tax: <%= @product.tax %></li>
+  <li>Total: <%= @product.sum %></li>
   <li><img src="<%=@product.image%>"></li>
 </ul>
 
+
+<%= link_to "Home", "/products" %>
+<%= link_to "Edit", "/products/#{@product.id}/edit" %>
 <%= link_to "Delete", "/products/#{@product.id}", method: :delete %>
