@@ -2,16 +2,19 @@
 
 <div class="row">
   <% @products.each do |product| %>
-  <div class =”col-md-3”>
-      <p><%= product.name %></p>
-      <p><%= product.price %></p>
-      <p><%= product.description %></p>
-      <div>
-        <img src="<%= product.image %>" width=”200” height =”200”>
-      </div>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <a href="/products/<%= product.id %>">
+        <p><%= link_to product.name, "/products/#{product.id}" %></p>
+        <p><%= product.price %></p>
+        <p><%= product.description %></p>
+        <div>
+          <img src="<%= product.image %>" width="200" height="250">
+        </div>
+      </a>
+    </div>
   </div>
-  <%end%>
-  
-</div>
+  <% end %>
 
-<%= link_to "New", "/products/new"%>
+  <%= link_to "New", "/products/new"%>
+</div>

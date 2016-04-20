@@ -1,11 +1,20 @@
 body {
-  background: url("graphy.png");*/
+  background-color: #F6E6CE;
   font-family: 'Varela Round', sans-serif;*/
 }
 img {
   border: 1px solid black;
 }
 
+a:link {
+  color: #FEF1E0;
+  }
+
+a:hover {
+    color: #A47F1A;
+    text-decoration: none;
+}
+
 .Discount {
-  color: red;
+  color: #3F0632;
 }

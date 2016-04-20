@@ -11,4 +11,8 @@ class Product < ActiveRecord::Base
     sum = price + tax
   end
 
+  def stock_text
+    stock_status == false ? "Out of Stock" : ""
+  end
 end
+  
