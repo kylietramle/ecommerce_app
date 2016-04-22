@@ -15,4 +15,5 @@ class Product < ActiveRecord::Base
     stock_status == false ? "Out of Stock" : ""
   end
 end
+
   
