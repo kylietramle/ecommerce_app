@@ -1,10 +1,13 @@
 <ul>
   <li>Product: <%= @product.name %></li>
   <li class="<%=@product.sale_message %>">Price: <%= @product.price %>---<%=@product.sale_message%></li>
+  <li>Supplier <%= @product.supplier.name %></li>
   <li>Tax: <%= @product.tax %></li>
   <li>Total: <%= @product.sum %></li>
   <li><%= @message %></li>
-  <li><img src="<%=@product.image%>"></li>
+  <% @product.images.all. each do |image| %>
+  <li><img src="<%=image.URL%>" width="300" height="auto"></li>
+  <% end %>
 </ul>
 
 
