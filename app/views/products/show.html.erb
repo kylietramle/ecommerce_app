@@ -5,7 +5,7 @@
   <li>Tax: <%= @product.tax %></li>
   <li>Total: <%= @product.sum %></li>
   <li><%= @message %></li>
-  <% @product.images.all. each do |image| %>
+  <% @product.images each do |image| %>
   <li><img src="<%=image.URL%>" width="300" height="auto"></li>
   <% end %>
 </ul>
