@@ -5,10 +5,24 @@
   <li>Tax: <%= @product.tax %></li>
   <li>Total: <%= @product.sum %></li>
   <li><%= @message %></li>
-  <% @product.images each do |image| %>
+  <% @product.images. each do |image| %>
   <li><img src="<%=image.URL%>" width="300" height="auto"></li>
   <% end %>
 </ul>
+
+<%= form_tag "/orders", method: :post do%>
+  <div>
+    <%= label_tag :quantity, 'Quantity' %>
+    <%= text_field_tag :quantity %>
+  </div>
+  <div>
+    <%= label_tag :product_id, 'Product ID' %>
+    <%= text_field_tag :product_id %>
+  </div>
+  <div>
+    <%= submit_tag 'Buy Now' %>
+  </div>
+<% end %>
 
 
 <%= link_to "Home", "/products" %>
