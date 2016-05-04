@@ -1,21 +1,16 @@
 class ProductsController < ApplicationController
   def index
-    sort_price = params[:sort]
-    if sort_price == "price"
+    if params[:sort]== "price"
       @products = Product.order(sort_price)
-    elsif sort_price == "desc_price"   
+    elsif params[:sort] == "desc_price"   
       @products = Product.order(price: :desc)
-    else
-      @products = Product.all
-    end
-
-    display_item = params[:display]
-    if display_item == "discount"
+    elsif params[:category]
+      @products = Category.find_by(name: params[:category]).products
+    elsif params[:display]
       @products = Product.where("price < ?", 50 )
     else
       @products = Product.all
     end
-
   end
 
   def show

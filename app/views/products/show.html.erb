@@ -5,23 +5,32 @@
   <li>Tax: <%= @product.tax %></li>
   <li>Total: <%= @product.sum %></li>
   <li><%= @message %></li>
+
+  <% @product.categories.each do |category| %>
+    <p>Category: <%= category.name %></p>
+  <% end %>
+  
   <% @product.images. each do |image| %>
   <li><img src="<%=image.URL%>" width="300" height="auto"></li>
   <% end %>
+
 </ul>
 
-<%= form_tag "/orders", method: :post do%>
-  <div>
-    <%= label_tag :quantity, 'Quantity' %>
-    <%= text_field_tag :quantity %>
-  </div>
-  <div>
-    <%= label_tag :product_id, 'Product ID' %>
-    <%= text_field_tag :product_id %>
-  </div>
-  <div>
-    <%= submit_tag 'Buy Now' %>
-  </div>
+<% if current_user %>
+  <%= form_tag "/carted_products", method: :post do%>
+    <div>
+      <%= label_tag :quantity, 'Quantity' %>
+      <%= text_field_tag :quantity %>
+    </div>
+    <div>
+      <%= hidden_field_tag :product_id, @product.id %>
+    </div>
+    <div>
+      <%= submit_tag 'Add to Cart' %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Please sign in to add items</p>
 <% end %>
 
 

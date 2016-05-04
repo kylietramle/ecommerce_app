@@ -19,7 +19,12 @@ Rails.application.routes.draw do
 
   
   get '/orders/:id' => 'orders#show'
+  patch '/orders/:id' => 'orders#update'
   post '/orders' => 'orders#create'
+
+  get '/carted_products' => 'carted_products#index'
+  get '/carted_products/:id' =>'carted_products#show'
+  post '/carted_products' =>'carted_products#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

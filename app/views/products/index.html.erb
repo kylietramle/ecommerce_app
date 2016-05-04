@@ -16,6 +16,12 @@
   </div>
   <% end %>
 
+<ul>
+  <% Category.all.each do |category| %>
+    <li><%= link_to category.name, "products?category=#{category.name}" %></li>
+  <% end %>
+</ul>
+
   <%= link_to "New", "/products/new"%>
   <%= link_to "Sort by Price", "/products?sort=price" %>
   <%= link_to "Sort by Price-Descending", "/products?sort=desc_price" %>

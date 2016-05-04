@@ -2,13 +2,12 @@
 
 <p>Order ID: <%=@order.id%></p>
 <p>User ID: <%=@order.user_id%></p>
-<p>User Email: <%=@order.user_id%></p>
+<p>User Email: <%=@order.user.email%></p>
 
-
-<p>Product Name: <%=@order.b%></p>
-<p>Image: </p>
-<p>Quantity: <%=@order.quantity%></p> 
-<p>Tax: </p>
-<p>Subtotal: </p>
-<p>Total: </p>
-<p>Time of Purchase: </p>
+<% @carted_products.each do |carted_product| %>
+  <p>Product Name: <%= carted_product.product.name %></p>
+  <p>Quantity: <%= carted_product.quantity%></p> 
+  <p>Tax: <%= @order.tax%></p>
+  <p>Subtotal: <%= @order.subtotal %></p>
+  <p>Total: <%= @order.total %></p>
+<% end %>

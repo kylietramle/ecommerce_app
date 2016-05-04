@@ -1,0 +1,13 @@
+<h2>Product added to cart!</h2>
+<% @carted_products.each do |carted_product|%>
+  <ul>
+    <li>Product: <%= carted_product.product.name %></li>
+    <li>Quantity: <%= carted_product.quantity %></li>
+  </ul>
+<% end %>
+
+<%= form_tag "/orders/#{@order.id}", method: :patch do %>
+  <div class = "form-group">
+    <%= submit_tag "Buy Now!", class: "btn btn-primary" %>
+  </div>
+<% end %>
